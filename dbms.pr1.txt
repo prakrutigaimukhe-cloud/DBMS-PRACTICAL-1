@@ -1,0 +1,112 @@
+ysql> CREATE DATABASE college\_db;
+
+Query OK, 1 row affected (0.03 sec)
+
+
+
+mysql> SHOW DATABASES;
+
++--------------------+
+
+| Database           |
+
++--------------------+
+
+| college\_db         |
+
+| college\_demo       |
+
+| information\_schema |
+
+| mysql              |
+
+| performance\_schema |
+
+| sakila             |
+
+| sys                |
+
+| world              |
+
++--------------------+
+
+8 rows in set (0.03 sec)
+
+
+
+mysql> USE college\_db;
+
+Database changed
+
+mysql> SELECT DATABASE();
+
++------------+
+
+| DATABASE() |
+
++------------+
+
+| college\_db |
+
++------------+
+
+1 row in set (0.00 sec)
+
+
+
+mysql> CREATE TABLE students (
+
+&#x20;   -> roll\_no INT PRIMARY KEY,
+
+&#x20;   -> name VARCHAR(50) NOT NULL,
+
+&#x20;   -> department VARCHAR(30),
+
+&#x20;   -> marks DECIMAL(5,2) CHECK (marks >= 0 AND marks <= 100),
+
+&#x20;   -> email VARCHAR(50) UNIQUE
+
+&#x20;   -> );
+
+Query OK, 0 rows affected (0.06 sec)
+
+
+
+mysql> DESCRIBE students;
+
++------------+--------------+------+-----+---------+-------+
+
+| Field      | Type         | Null | Key | Default | Extra |
+
++------------+--------------+------+-----+---------+-------+
+
+| roll\_no    | int          | NO   | PRI | NULL    |       |
+
+| name       | varchar(50)  | NO   |     | NULL    |       |
+
+| department | varchar(30)  | YES  |     | NULL    |       |
+
+| marks      | decimal(5,2) | YES  |     | NULL    |       |
+
+| email      | varchar(50)  | YES  | UNI | NULL    |       |
+
++------------+--------------+------+-----+---------+-------+
+
+5 rows in set (0.01 sec)
+
+
+
+mysql> INSERT INTO students VALUES
+
+&#x20;   -> (1, 'Rahul Sharma', 'EC', 85.5, 'rahul@college.edu'),
+
+&#x20;   -> (2, 'priya patel', 'EC', 92.0, priya@college.edu'),
+
+&#x20;   '> (3, 'Amit Kumar', 'EC', 78.5, 'amit@college.edu');
+
+&#x20;   '> SELECT \* FROM students;
+
+
+
+
+
